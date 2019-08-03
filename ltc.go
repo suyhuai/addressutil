@@ -20,10 +20,6 @@ type LTCAddress struct {
 }
 
 func NewLTCAddress(pubKey []byte, main bool) (*LTCAddress, error) {
-	if len(pubKey) != 65 || pubKey[0] != 0x04 {
-		return nil, ErrPublicKeyFormat
-	}
-
 	var net LTCNet
 	if main {
 		net = LTC_MAIN_NET

@@ -23,10 +23,6 @@ type BTCAddress struct {
 }
 
 func NewBTCAddress(pubKey []byte, main bool) (*BTCAddress, error) {
-	if len(pubKey) != 65 || pubKey[0] != 0x04 {
-		return nil, ErrPublicKeyFormat
-	}
-
 	var net BTCNet
 	if main {
 		net = BTC_MAIN_NET

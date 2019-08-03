@@ -13,10 +13,6 @@ type TRONAddress struct {
 }
 
 func NewTRONAddress(pubKey []byte) (*TRONAddress, error) {
-	if len(pubKey) != 65 {
-		return nil, ErrPublicKeyFormat
-	}
-
 	address := &TRONAddress{
 		pubKey: pubKey[1:],
 		addr:   tronAddrFromPub(pubKey),

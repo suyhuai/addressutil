@@ -23,10 +23,6 @@ type VDSAddress struct {
 }
 
 func NewVDSAddress(pubKey []byte) (*VDSAddress, error) {
-	if len(pubKey) != 65 || pubKey[0] != 0x04 {
-		return nil, ErrPublicKeyFormat
-	}
-
 	addr, err := VdsAddrFromPub(pubKey)
 	if err != nil {
 		return nil, err

@@ -36,10 +36,6 @@ type BCHAddress struct {
 }
 
 func NewBCHAddress(pubKey []byte, main bool) (*BCHAddress, error) {
-	if len(pubKey) != 65 || pubKey[0] != 0x04 {
-		return nil, ErrPublicKeyFormat
-	}
-
 	var net BCHNet
 	var prefix BCHPrefix
 	if main {

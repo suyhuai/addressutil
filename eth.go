@@ -15,10 +15,6 @@ type ETHAddress struct {
 }
 
 func NewETHAddress(pubKey []byte) (*ETHAddress, error) {
-	if len(pubKey) != 65 || pubKey[0] != 0x04 {
-		return nil, ErrPublicKeyFormat
-	}
-
 	return &ETHAddress{
 		pubKey: pubKey,
 	}, nil
